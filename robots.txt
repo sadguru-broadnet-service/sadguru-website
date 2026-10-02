@@ -1,0 +1,5 @@
+# SITE_URL: replace the domain below once the real domain is live
+User-agent: *
+Allow: /
+
+Sitemap: https://sadgurubroadnet.netlify.app/sitemap.xml

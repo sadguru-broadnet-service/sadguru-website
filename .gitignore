@@ -1,0 +1,10 @@
+# OS / editor junk
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Netlify CLI local state (if ever used)
+.netlify/

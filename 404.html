@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | Sadguru Broadnet Services</title>
+  <!-- Netlify serves this for any missing URL; keep it out of search results -->
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FF4A00">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..800&amp;display=swap">
+  <!-- Absolute paths: this page is served at whatever URL was missing, e.g. /services/old -->
+  <link rel="stylesheet" href="/css/styles.css?v=3">
+  <style>
+    body { margin: 0; } /* applies before styles.css arrives, so the first layout doesn't shift */
+    .thanks { min-height: 100vh; display: grid; place-items: center; padding: 40px 16px; background: var(--paper-alt); }
+    .thanks-box { max-width: 34rem; text-align: center; }
+    .thanks img { width: 88px; height: 88px; margin: 0 auto 28px; }
+    .thanks h1 { font-size: clamp(2.2rem, 1.4rem + 3vw, 3.25rem); font-weight: 800; font-stretch: 118%; letter-spacing: -.03em; }
+    .thanks p { color: var(--ink-soft); font-size: var(--fs-lead); line-height: 1.5; margin-bottom: 32px; }
+    .thanks .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  </style>
+</head>
+<body>
+  <main class="thanks">
+    <div class="thanks-box">
+      <img src="/images/icon.png" alt="" width="256" height="256">
+      <h1>Page not found</h1>
+      <p>This link doesn't lead anywhere on our site. Head back to the home page, or call or WhatsApp us on +91 74981 58140.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/">Back to home</a>
+        <a class="btn btn-outline" href="tel:+917498158140">Call now</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
