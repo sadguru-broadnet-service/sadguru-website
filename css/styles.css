@@ -321,21 +321,22 @@ a { color: inherit; }
   .hero-badge { left: 50%; top: 74%; bottom: auto; } /* tucked against the disc's lower edge */
 }
 
-/* The one orchestrated moment: strands draw out of the disc on load.
-   Plays once per browser session only; refreshes and return visits get the
-   finished hero straight away (index.html adds .intro-seen in <head>). */
+/* The one orchestrated moment: strands draw out of the disc on every load.
+   The disc scales from its own centre; it has no transform attribute of its
+   own (that sits on an inner <g>), so the animation can't move it. */
+.strands .disc { transform-box: fill-box; transform-origin: center; }
 @media (prefers-reduced-motion: no-preference) {
-  :root:not(.intro-seen) .strands path {
+  .strands path {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     animation: draw-strand 1.8s cubic-bezier(.55, 0, .25, 1) forwards;
     animation-delay: calc(.2s + var(--i) * .12s);
   }
-  :root:not(.intro-seen) .strands .disc { animation: disc-in .6s cubic-bezier(.2, .7, .2, 1) both; transform-box: fill-box; transform-origin: center; }
-  :root:not(.intro-seen) .hero-badge { animation: fade-in .5s ease 1.3s both; }
+  .strands .disc { animation: disc-in .6s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero-badge { animation: fade-in .5s ease 1.3s both; }
 }
 @keyframes draw-strand { to { stroke-dashoffset: 0; } }
-@keyframes disc-in { from { opacity: 0; scale: .94; } }
+@keyframes disc-in { from { opacity: 0; scale: .9; } }
 @keyframes fade-in { from { opacity: 0; } }
 
 /* ---------- 7. About ---------- */

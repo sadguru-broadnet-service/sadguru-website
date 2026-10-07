@@ -40,23 +40,19 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..800&amp;display=swap">
 
   <!-- ===== Styles & scripts (no frameworks) ===== -->
-  <!-- Runs before first paint: the hero intro plays once per browser session (refreshes
-       show the finished hero), and transitions stay off until the page has loaded so a
-       refresh mid-page doesn't animate the header border or nav underline into place. -->
+  <!-- Runs before first paint: transitions stay off until the page has loaded, so a
+       refresh part-way down the page doesn't animate the header border or nav underline
+       into place. (The hero intro is a CSS animation and is unaffected.) -->
   <script>
     (function (d) {
       d.classList.add('is-loading');
-      try {
-        if (sessionStorage.getItem('sg-intro')) d.classList.add('intro-seen');
-        else sessionStorage.setItem('sg-intro', '1');
-      } catch (e) { /* storage blocked: just play the intro */ }
       addEventListener('load', function () {
         setTimeout(function () { d.classList.remove('is-loading'); }, 50);
       });
     })(document.documentElement);
   </script>
   <link rel="preload" href="images/logo.jpg" as="image">
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=6">
   <script src="js/main.js?v=3" defer></script>
 
   <!-- ===== Structured data for Google (local business) ===== -->
@@ -169,12 +165,16 @@
             <path pathLength="1" style="--i:2" d="M220 330 C 380 290, 560 250, 1600 270"/>
             <path pathLength="1" style="--i:3" d="M220 330 C 400 330, 620 360, 1600 390"/>
             <path pathLength="1" style="--i:4" d="M220 330 C 280 170, 330 40, 640 -260"/>
-            <!-- brand disc, same geometry as favicon.svg -->
-            <g class="disc" transform="translate(220 330) scale(2.653) translate(-50 -50)">
-              <circle cx="50" cy="50" r="49" fill="#FF4A00"/>
-              <circle cx="49" cy="22" r="6.2" fill="#fff"/>
-              <rect x="24" y="31" width="53" height="9" fill="#fff"/>
-              <rect x="45" y="42" width="9.5" height="46" fill="#fff"/>
+            <!-- brand disc, same geometry as favicon.svg. The outer <g> only animates (CSS);
+                 the inner <g> only positions it (centre 137.35,247.35, radius 130), so the
+                 two transforms never fight. The strands meet near the disc's lower-right edge. -->
+            <g class="disc">
+              <g transform="translate(137.35 247.35) scale(2.653) translate(-50 -50)">
+                <circle cx="50" cy="50" r="49" fill="#FF4A00"/>
+                <circle cx="49" cy="22" r="6.2" fill="#fff"/>
+                <rect x="24" y="31" width="53" height="9" fill="#fff"/>
+                <rect x="45" y="42" width="9.5" height="46" fill="#fff"/>
+              </g>
             </g>
           </svg>
           <p class="hero-badge">
