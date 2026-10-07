@@ -109,6 +109,9 @@ a { color: inherit; }
 
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
 
+/* No transitions while the page is still loading (class set in index.html <head>) */
+.is-loading *, .is-loading *::before, .is-loading *::after { transition: none !important; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -318,19 +321,21 @@ a { color: inherit; }
   .hero-badge { left: 50%; top: 74%; bottom: auto; } /* tucked against the disc's lower edge */
 }
 
-/* The one orchestrated moment: strands draw out of the disc on load */
+/* The one orchestrated moment: strands draw out of the disc on load.
+   Plays once per browser session only; refreshes and return visits get the
+   finished hero straight away (index.html adds .intro-seen in <head>). */
 @media (prefers-reduced-motion: no-preference) {
-  .strands path {
+  :root:not(.intro-seen) .strands path {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     animation: draw-strand 1.8s cubic-bezier(.55, 0, .25, 1) forwards;
     animation-delay: calc(.2s + var(--i) * .12s);
   }
-  .strands .disc { animation: disc-in .7s cubic-bezier(.3, 1.4, .5, 1) both; transform-box: fill-box; transform-origin: center; }
-  .hero-badge { animation: fade-in .5s ease 1.3s both; }
+  :root:not(.intro-seen) .strands .disc { animation: disc-in .6s cubic-bezier(.2, .7, .2, 1) both; transform-box: fill-box; transform-origin: center; }
+  :root:not(.intro-seen) .hero-badge { animation: fade-in .5s ease 1.3s both; }
 }
 @keyframes draw-strand { to { stroke-dashoffset: 0; } }
-@keyframes disc-in { from { opacity: 0; scale: .85; } }
+@keyframes disc-in { from { opacity: 0; scale: .94; } }
 @keyframes fade-in { from { opacity: 0; } }
 
 /* ---------- 7. About ---------- */
