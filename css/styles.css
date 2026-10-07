@@ -172,7 +172,7 @@ a { color: inherit; }
 .btn-outline .icon { color: var(--orange); }
 .btn-outline:hover { background: var(--ink); color: #fff; }
 
-.btn-sm { padding: .55em 1.1em; font-size: .9375rem; }
+.btn-sm { min-height: 44px; padding: .55em 1.1em; font-size: .9375rem; } /* 44px: comfortable tap target */
 .btn-lg { padding: .95em 1.6em; font-size: 1.0625rem; }
 .btn-block { width: 100%; }
 
