@@ -2,7 +2,7 @@
 
 How the site is built, how to change it, and what to do when something goes wrong.
 
-- **Live site:** https://sadgurubroadnet.netlify.app/ (update this line if the Netlify site name differs)
+- **Live site:** https://sadgurubroadnetservices.netlify.app/ (Netlify project name: `sadgurubroadnetservices`)
 - **Code:** private GitHub repo `sadguru-website`, owned by the Sadguru account. The maintainer is a collaborator.
 - **Hosting:** Netlify, connected to that repo. Every push to `main` goes live automatically in about 30 seconds.
 
@@ -111,5 +111,5 @@ Free-plan limit: **100 form submissions per month.** Check usage in Netlify → 
 
 1. Buy the domain **in the client's name** (e.g. a .in or .com from any registrar).
 2. Netlify → Domain management → Add a domain → follow the DNS instructions. Netlify sets up HTTPS automatically.
-3. In the code, replace `https://sadgurubroadnet.netlify.app` everywhere it's marked `SITE_URL` (`index.html`, `robots.txt`, `sitemap.xml`), then push.
+3. In the code, replace `https://sadgurubroadnetservices.netlify.app` everywhere it's marked `SITE_URL` (`index.html`, `robots.txt`, `sitemap.xml`), then push.
 4. In Google Search Console, add the new domain and submit `sitemap.xml` again.

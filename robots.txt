@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sadgurubroadnet.netlify.app/sitemap.xml
+Sitemap: https://sadgurubroadnetservices.netlify.app/sitemap.xml
