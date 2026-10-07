@@ -8,3 +8,6 @@ desktop.ini
 
 # Netlify CLI local state (if ever used)
 .netlify/
+
+# Private maintenance runbook: stays on the maintainer's computer only
+MAINTENANCE.md
