@@ -47,3 +47,11 @@
   to = "/404.html"
   status = 404
   force = true
+
+# One public address: send the old Netlify subdomain to the real domain.
+# (Deploy previews use other hostnames, so they're unaffected.)
+[[redirects]]
+  from = "https://sadgurubroadnetservices.netlify.app/*"
+  to = "https://sadgurubroadnetservices.com/:splat"
+  status = 301
+  force = true
